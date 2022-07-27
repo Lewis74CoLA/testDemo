@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn-ZH">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>天知道天气查询</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- import css -->
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" value="北京" @keyup.enter="searchWeather" v-model="city" />
+        <input type="button" value="点击查询" @click="searchWeather" />
+        <div>
+            <span @click="changeCity('北京') ">北京</span>
+            <span @click="changeCity('上海')">上海</span>
+            <span @click="changeCity('广州')">广州</span>
+            <span @click="changeCity('深圳')">深圳</span>
+        </div>
+        <ul>
+            <li>{{city}} 天气情况</li>
+            <li v-for="item in forcasts">
+                {{item.date}} {{item.fengli}} {{item.fengxiang}} {{item.high}} {{item.low}} {{item.type}}
+            </li>
+        </ul>
+    </div>
+    <script src="https:cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https:unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./config.js"></script>
+    <!-- import js -->
+</body>
+
+</html>
